@@ -61,5 +61,5 @@ def task_list_urgent(request):
     tasks = Task.objects.filter(urgent=True)
 
     if request.method == 'GET':
-        tasks_serializer= TaskSerializer(tasks, many=True)
+        tasks_serializer = TaskSerializer(tasks, many=True)
         return JsonResponse(tasks_serializer.data, safe=False)
