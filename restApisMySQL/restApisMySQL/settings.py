@@ -66,7 +66,10 @@ ROOT_URLCONF = 'restApisMySQL.urls'
 # CORS SETTINGS
 
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = ['http://localhost:8081']
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8081',
+    'http://localhost:4200'
+    ]
 
 TEMPLATES = [
     {
