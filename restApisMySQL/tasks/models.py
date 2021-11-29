@@ -1,6 +1,15 @@
 from django.db import models
 
 # Create your models here.
+class Client(models.Model):
+    name = models.CharField(max_length=32)
+    description = models.CharField(max_length=64)
+    scope = models.CharField(max_length=64)
+    email = models.EmailField()
+    notes = models.CharField(max_length=500)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
 class Task(models.Model):
     description = models.CharField(max_length=150)
     body = models.CharField(max_length=500)
@@ -8,3 +17,5 @@ class Task(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     due = models.DateTimeField(auto_now_add=True)
+    client = models.ForeignKey(Client, null=True, on_delete=models.CASCADE)
+
