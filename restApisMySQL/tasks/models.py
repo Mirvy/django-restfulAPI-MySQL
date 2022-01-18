@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Client(models.Model):
@@ -16,6 +17,6 @@ class Task(models.Model):
     urgent = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    due = models.DateTimeField(auto_now_add=True)
+    due = models.DateTimeField()
     client = models.ForeignKey(Client, null=True, on_delete=models.CASCADE)
 

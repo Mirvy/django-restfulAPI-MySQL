@@ -7,6 +7,7 @@ from rest_framework import status
 from tasks.models import Task, Client
 from tasks.serializers import TaskSerializer, ClientSerializer
 from rest_framework.decorators import api_view
+import logging
 
 # Create your views here.
 
@@ -46,6 +47,7 @@ def task_detail(request, pk):
         return JsonResponse(task_serializer.data)
     elif request.method == 'PUT':
         task_data = JSONParser().parse(request)
+        logging.error(task_data)
         task_serializer = TaskSerializer(task, data=task_data)
         if task_serializer.is_valid():
             task_serializer.save()
